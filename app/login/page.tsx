@@ -8,7 +8,8 @@ import { login, setAuthToken } from '../../api/api';
 
 export default function Login() {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
+
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
