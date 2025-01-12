@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { register } from '../../api/api';
+import { FormEvent } from 'react';
 
 export default function Register() {
   const router = useRouter();
@@ -16,13 +17,13 @@ export default function Register() {
   const [success, setSuccess] = useState(false); // To handle success feedback
 
   // Handle input changes
-  const handleChange = (e) => {
+  const handleChange = (e: FormEvent) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault(); // Prevent page reload
     setError(""); // Clear previous errors
 

@@ -1,6 +1,7 @@
 "use client"; // Enable React hooks for this client component
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FormEvent } from 'react';
 
 import { useState } from "react";
 import { login, setAuthToken } from '../../api/api';
@@ -10,7 +11,7 @@ export default function Login() {
   const [error, setError] = useState(null);
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
       const response = await login(credentials);
